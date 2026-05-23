@@ -1,9 +1,9 @@
 model Transaction {
-    id String @id @default(auto()) @map("_id") @db.ObjectId
+   id String @id @default(uuid())
 
     amount    Float
-    userId    String @db.ObjectId
-    paymentId String @db.ObjectId
+    userId    String
+    paymentId String
 
     cardBrand            String?
     cardLast4            String?

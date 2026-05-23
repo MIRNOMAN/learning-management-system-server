@@ -41,6 +41,7 @@ const resendVerificationOtpToNumber = catchAsync(async (req, res) => {
   const result = await AuthServices.resendVerificationOtpToNumber(email);
   sendResponse(res, {
     statusCode: httpStatus.OK,
+    message: 'Verification OTP sent successfully',
     data: result,
   });
 });
@@ -50,6 +51,7 @@ const changePassword = catchAsync(async (req, res) => {
   const result = await AuthServices.changePassword(req.user, req.body);
   sendResponse(res, {
     statusCode: httpStatus.OK,
+    message: 'Password changed successfully',
     data: result,
   });
 });
@@ -60,6 +62,7 @@ const forgetPassword = catchAsync(async (req, res) => {
   const result = await AuthServices.forgetPassword(email);
   sendResponse(res, {
     statusCode: httpStatus.OK,
+    message: 'Password reset OTP sent to your email',
     data: result,
   });
 });
@@ -80,6 +83,7 @@ const resetPassword = catchAsync(async (req, res) => {
   const result = await AuthServices.resetPassword(req.body, token);
   sendResponse(res, {
     statusCode: httpStatus.OK,
+    message: 'Password reset successfully',
     data: result,
   });
 });
@@ -101,5 +105,5 @@ export const AuthControllers = {
   forgetPassword,
   verifyForgotPassOtp,
   resetPassword,
-  refreshToken
+  refreshToken,
 };

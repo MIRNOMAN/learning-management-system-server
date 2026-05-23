@@ -1,7 +1,7 @@
 model Payment {
-    id                    String  @id @default(auto()) @map("_id") @db.ObjectId
-    userId                String  @db.ObjectId
-    subscriptionPackageId String? @db.ObjectId
+    id                    String  @id @default(uuid())
+    userId                String
+    subscriptionPackageId String?
 
     paymentIntent        String?
     paymentMethodType    String?
